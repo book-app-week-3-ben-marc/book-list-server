@@ -20,19 +20,25 @@ const books = [
     book_id: nextBookId++,
     title: 'Harry Potter and the Sorcerer&apos;s Stone',
     author: 'J.K. Rowling',
-    image_url: 'https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg'
+    isbn: '8675309',
+    image_url: 'https://images-na.ssl-images-amazon.com/images/I/51HSkTKlauL._SX346_BO1,204,203,200_.jpg',
+    description: 'harry potter\'s first book'
   },
   {
     book_id: nextBookId++,
     title: 'Harry Potter and the Chamber of Secrets',
     author: 'J.K. Rowling',
-    image_url: 'https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg'
+    isbn: '30587',
+    image_url: 'https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg',
+    description: 'harry potter\'s second book'
   },
   {
     book_id: nextBookId++,
     title: 'Harry Potter and the Prisoner of Azkaban',
     author: 'J.K. Rowling',
-    image_url: 'https://images-na.ssl-images-amazon.com/images/I/51JAGM6G3PL._SX316_BO1,204,203,200_.jpg'
+    isbn: '230948',
+    image_url: 'https://images-na.ssl-images-amazon.com/images/I/51JAGM6G3PL._SX316_BO1,204,203,200_.jpg',
+    description: 'harry potter\'s third book'
   },
 ];
 
