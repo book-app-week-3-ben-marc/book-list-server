@@ -47,16 +47,17 @@ app.get('/api/v1/books', (request, response) => {
 });
 
 app.get('/api/v1/books/:id', (request, response) => {
-  console.log(`Finding book with id = ${req.params.id}`);
+  console.log(`Finding book with id = ${request.params.id}`);
+
+  let currentBook = books.find(book => book.book_id === parseInt(request.params.id));
+  console.log(currentBook);
+  if (currentBook) {
+    response.send(currentBook);
+  }
+  else {
+    response.sendStatus(404);
+  }  
 });
 
-let currentBook = books.find(book => book.book_id === parseInt(request.params.book_id));
-console.log(currentBook);
-if (currentBook) {
-  response.send(currentBook);
-}
-else {
-  response.sendStatus(404);
-}
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "DeltaV Code 301 Week 3 Project",
   "main": "server.js",
-  "dependencies": {
-    "cors": "^2.8.4",
-    "express": "^4.16.3"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,7 +16,7 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3"
-  }
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/book-app-week-3-ben-marc/book-list-server/issues"
