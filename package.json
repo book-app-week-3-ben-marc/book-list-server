@@ -17,6 +17,10 @@
     "url": "git+https://github.com/book-app-week-3-ben-marc/book-list-server.git"
   },
   "author": "Ben Van Meter and Marc Hauschildt",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/book-app-week-3-ben-marc/book-list-server/issues"
