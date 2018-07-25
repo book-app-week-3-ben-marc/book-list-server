@@ -74,5 +74,24 @@ app.post('/api/v1/books/add', (request, response) => {
   response.sendStatus(201);
 });
 
+app.put('/api/v1/books/:id', (request, response) => {
+  console.log(`Updating book with id = ${request.params.id}`);
+
+  let currentBook = books.find(book => book.book_id === parseInt(request.params.id));
+  console.log(currentBook);
+  if (currentBook) {
+    currentBook.title = request.body.title;
+    currentBook.author = request.body.author;
+    currentBook.isbn = request.body.isbn;
+    currentBook.image_url = request.body.image_url;
+    currentBook.description = request.body.description;
+    console.log(books);
+    response.sendStatus(200);
+  }
+  else {
+    response.sendStatus(404);
+  }
+});
+
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
