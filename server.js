@@ -10,13 +10,16 @@ const app = express();
 
 // Middleware
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
 app.get('/', (request, response) => response.send('Server running'));
 
 // Temp Database
 let nextBookId = 1;
-const books = [
-  {
+const books = [{
     book_id: nextBookId++,
     title: 'Harry Potter and the Sorcerer&apos;s Stone',
     author: 'J.K. Rowling',
@@ -53,10 +56,22 @@ app.get('/api/v1/books/:id', (request, response) => {
   console.log(currentBook);
   if (currentBook) {
     response.send(currentBook);
-  }
-  else {
+  } else {
     response.sendStatus(404);
-  }  
+  }
+});
+
+app.post('/api/v1/books/add', (request, response) => {
+  let newBook = {};
+  newBook.book_id = nextBookId++;
+  newBook.title = request.body.title;
+  newBook.author = request.body.author;
+  newBook.isbn = request.body.isbn;
+  newBook.image_url = request.body.image_url;
+  newBook.description = request.body.description;
+  books.push(newBook);
+  console.log(books);
+  response.sendStatus(201);
 });
 
 
