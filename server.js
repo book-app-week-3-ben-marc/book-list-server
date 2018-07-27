@@ -50,7 +50,14 @@ app.get('/api/v1/books', (request, response) => {
 });
 
 app.get('/api/v1/books/:id', (request, response) => {
-  console.log(`Finding book with id = ${request.params.id}`);
+  //console.log(`Finding book with id = ${request.params.id}`);
+  let currentBook = books.find(book => book.book_id === parseInt(request.params.id));
+  console.log(currentBook);
+  if (currentBook) {
+    response.send(currentBook);
+    } else {
+      response.sendStatus(404);
+    };
 });
 
 app.delete('/api/v1/books/:id', (request, response) => {
@@ -59,14 +66,6 @@ app.delete('/api/v1/books/:id', (request, response) => {
     confirm('Are you sure you would like to delete this book?');
   }
 });
-
-  let currentBook = books.find(book => book.book_id === parseInt(request.params.id));
-  console.log(currentBook);
-  if (currentBook) {
-    response.send(currentBook);
-    } else {
-      response.sendStatus(404);
-    };
 
 app.post('/api/v1/books/add', (request, response) => {
   let newBook = {};
