@@ -19,7 +19,7 @@ app.get('/', (request, response) => response.send('Server running'));
 
 // Temp Database
 let nextBookId = 1;
-const books = [{
+let books = [{
     book_id: nextBookId++,
     title: 'Harry Potter and the Sorcerer&apos;s Stone',
     author: 'J.K. Rowling',
@@ -62,9 +62,11 @@ app.get('/api/v1/books/:id', (request, response) => {
 
 app.delete('/api/v1/books/:id', (request, response) => {
   console.log(`Deleting book with id = ${request.params.id}`);
-  function bookDelete() {
-    confirm('Are you sure you would like to delete this book?');
-  }
+  console.log('array before deletion: ' + books);
+  books = books.filter(currentBook =>  currentBook.book_id !== 2);
+  console.log('array after deletion: ' + books);
+  response.sendStatus(204);
+  
 });
 
 app.post('/api/v1/books/add', (request, response) => {
